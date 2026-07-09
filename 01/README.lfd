@@ -1,0 +1,99 @@
+ >./target{"txt"}
+.#
+** Struct
+1) Variables
+   1) [X] Penjelasan singkat mengenai variables (variables terdiri dari apa saja)
+   2) [X] Tentang Scopes dan tempat penyimpanan Variables
+2) Pointer
+   1) [X]  Apa itu pointer
+   2) [ ]  Bagaimana Pointer Bekerja + Dereference
+   3) [ ]  Apa saja yang disimpan dalam pointer
+   4) [ ]  void*
+}
+.#
+
+** Scripts
+./start(title){
+Speedrun Ngejelasin apa itu variabel dan pointer
+}
+
+mulai!
+
+./start(part-1; num: 1)
+Variables adalah konsep dasar dari pemograman yang merupakan Abstraksi dari lokasi penyimpanan dengan label yang digunakan oleh
+programmer untuk menyimpan, mengubah, dan mengakses suatu data.
+
+variables itu sendiri terdiri dari 4 Komponen yaitu Nama Simbolik, Tipe Data, Alamat Memory, dan Data.
+1) jadi yang pertama nama simbolik, Nama simbolik itu adalah nama yang diberikan oleh programmer untuk mereferensikan suatu variables. Nama Simbolik
+   ini bisa diberi nama sesuka kita selama mengikuti aturan dari bahasa pemogramannya seperti tidak boleh ada spasi, koma, strip dan biasanya emoji....
+   kecuali swift tentunya. selama proses kompilasi, Nama Simbolik digunakan oleh compiler sebagai identifier di dalam symbol table, dan setelah proses translasi,
+   Nama simbolik tersebut dibuang dan digantikan menjadi alamat memori atau lokasi penyimpanan lain yang ditentukan oleh compiler
+2) kemudian ada tipe data, tipe data  ada untuk memberitahu compiler bagaimana data tersebut harus diolah. biasanya programmer sendiri yang
+   akan menentukan tipe data apa yang akan digunakan oleh suatu variables, tapi ada beberapa bahasa bersifat dynamic typed language seperti python
+   yang mana interpreter dari python sendiri yang menentukan tipe datanya berdasarkan objek yang dibangun, yah.... meski agak nge roulete sih.....
+3) lalu ada alamat memory, yakni lokasi tempat data disimpan selama program berjalan. Alamat ini memungkinkan processor menemukan dan mengakses data yang
+   benar
+4) dan terakhir data. data adalah nilai yang di simpan pada lokasi memori tersebut. sebenarnya data hanya merupakan rangkaian dari nilai 0 dan 1 yang secara fisik
+   direpresentasikan dengan dua kondisi listrik yang berbeda. dan iya, nilai ini sebenarnya nggak memiliki makna kecuali ketika kita memiliki informasi terkait
+   tipe data, sehingga compiler jadi mampu membuat instruksi mesin yang sesuai rangkaian 0 dan 1 tersebut.
+
+   seperti misal tipe data integer itu sendiri mengikuti sistem perhitungan biner dengan 1 bit sign yang digunakan untuk merepresentasikan (+ / -) [tentu untuk signed int]
+   sedangkan float memiliki mekanisme atau cara baca mereka sendiri yang mengikuti IEEE 754 yang terdiri dari 1 bit sign untuk merepresentasikan (+ / -), 8 bits untuk exponent,
+   dan 23 bits untuk menyimpan mantissa. Dengan kata lain, rangkaian bit yang sama dapat memiliki makna yang berbeda tergantung pada tipe data dan instruksi yang digunakan.
+   Sebagai contoh, pola bit tertentu dapat dibaca sebagai bilangan bulat jika diinterpretasikan sebagai integer, atau sebagai bilangan pecahan jika diinterpretasikan menggunakan
+   format IEEE 754, atau bahkan menjadi 4 tipe data characters.
+
+variables itu sendiri juga memiliki scopes. Scopes itu adalah region / area dimana variables itu dapat diakses. dimana yang paling umum ada dua yaitu
+local scope dan global scope. local scope memungkinkan variable hanya bisa dibaca dan digunakan pada blok kode tempat variabel tersebut dideklarasikan
+misalnya di dalam fungsi, blok if, perulangan, ataupun blok kode. sedangkan global scopes dapat diakses dari berbagai bagian program.
+
+./end(part-1)
+
+
+./start(part-2; num: 2)
+pointer itu sendiri tidak lebih dan tidak bukan adalah variables yang mana data yang disimpan merupakan alamat memori. untuk mempermudah, pointer dapat dianalogikan sebagai
+panah yang menujuk ke suatu lokasi  memori, dan dengan tipe data yang dimiliki oleh pointer maka compiler mampu menghasilkan instruksi yang sesuai sehingga program tahu
+bagaimana data pada lokasi tersebut di interpretasikan.
+
+Pointer sering digunakan untuk mengakses data secara tidak langsung, mengirim referensi ke fungsi tanpa menyalin data, mengubah data dari fungsi lain, mengelola memori dinamis,
+serta membangun struktur data seperti linked list, tree, dan graph. pada level hardware pointer juga nilainya tidak lebih adalah angka yang biasanya ditampung dengan 64bit memori
+(pada komputer  modern) sehingga Pointer dapat dilakukan operasi aritmatika yaitu dengan menambahkan ataupun menguranginya nilainya, hal tersebut akan berefek pada berpindahnya panah
+pointer yang menunjuk ke memori dimana perpindahan tersebut berdasarkan ukuran dari tipe data pointer tersebut.
+
+nah seperti yang kita tahu, pointer hanya menyimpan alamat memori. Agar data yang berada di memori tersebut dapat digunakan, compiler menyediakan operasi yang disebut
+dereferencing. dereferencing secara simpelnya adalah operasi untuk mengakses data yang disimpan di lokasi yang ditunjuk pointer dimana data tersebut di baca berdasarkan tipe data
+nya
+
+selain itu, salah satu fitur yang paling sering digunakan dari pointer adalah void pointer. void pointer adalah pointer yang tidak menyertakan informasi terkait tipe objek yang ditunjuk dan ukuran tipe datanya.
+dan karena hal tersebut, compiler tidak mampu mendereference karena compiler tidak tahu ukuran byte yang harus dibaca ataupun cara menginterpretasikannya.
+
+Kelebihan void pointer adalah programmer cukup membuat satu fungsi yang menerima parameter bertipe void* atau mengembalikan void*. Dengan begitu, pointer ke berbagai jenis tipe data dapat dikonversi menjadi void* dan menggunakan fungsi yang sama,
+sehingga programmer tidak perlu membuat banyak fungsi berbeda berdasarkan tipe.
+
+Tentunya untuk digunakan kembali, void pointer harus di cast menjadi tipe data yang sesuai atau yang di inginkan. implementasi void pointer sangatlah umum sebagai opsi generic
+di bahasa C, salah satunya adalah di libc seperti memcpy yang menerima void pointer dikarenakan tujuannya hanya menyalin isi dari suatu alamat ke alamat lainnya ataupun malloc yang mereturn void pointer karena
+fungsi tersebut hanya menyediakan alamat memori tanpa mengetahui objek apa yang nantinya akan disimpan di sana.
+
+./end(part-2)
+
+
+
+./bottom
+./start(footer)
+TILT
+- rumus untuk menghitung float dari bit:
+  (-1)^s * (1+m) * (2^(e-1)-1)
+- Tipe Data hanya disimpan di compiler
+
+dengan:
+  - s: sign bit
+  - m: mantissa bit
+  - e: exponent bit
+    
+./end(footer)
+
+./start(Notes)
+
+# Penjelasan terkait bagaimana tipe data bekerja lebih dalam dijelaskan di video terpisah karena bisa jadi konsep ide video yang bagus
+
+./end(Notes)
